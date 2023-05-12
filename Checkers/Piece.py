@@ -23,7 +23,7 @@ class Piece:
         self.isKingPiece = True
 
     def DrawPiece(self, window):
-        radius = SQUARE_SIZE // 2- self.PADDING
+        radius = SQUARE_SIZE // 2 - self.PADDING
         pygame.draw.circle(window, GREY, (self.x, self.y,), radius + self.BORDER)
         pygame.draw.circle(window, self.color, (self.x, self.y), radius)
         if(self.isKingPiece):

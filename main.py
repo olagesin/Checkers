@@ -10,12 +10,15 @@ WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
 pygame.display.set_caption("Checkers")
 gamemode = HUMANVSCOMPUTER
+DIFFICULTYLEVEL = 3
+
 
 def GetRowAndColFromMouseClick(pos):
     x, y = pos
     row = y // SQUARE_SIZE
     col = x // SQUARE_SIZE
     return row, col
+
 
 def main():
     run = True
@@ -27,19 +30,22 @@ def main():
 
         if gamemode is HUMANVSCOMPUTER:
             if game.turn == WHITE:
-                value, new_board = minimax_alpha_beta(game.get_board(), 4, WHITE, float('-inf'), float('inf'), game)
+                value, new_board = minimax_alpha_beta(game.get_board(), DIFFICULTYLEVEL, WHITE, float('-inf'),
+                                                      float('inf'), game)
                 # value, new_board = minimax(game.get_board(), 3, WHITE, game)
                 game.ai_move(new_board)
 
-        elif gamemode is COMPUTERVSCOMPUTER:
-            if game.turn == WHITE:
-                value, new_board = minimax_alpha_beta(game.get_board(), 4, RED, float('-inf'), float('inf'), game)
-                game.ai_move(new_board)
-            if game.turn == RED:
-                value, new_board = minimax_alpha_beta(game.get_board(), 4, WHITE, float('-inf'), float('inf'), game)
-                game.ai_move(new_board)
+        # elif gamemode is COMPUTERVSCOMPUTER:
+        #     if game.turn == WHITE:
+        #         value, new_board = minimax_alpha_beta(game.get_board(), DIFFICULTYLEVEL, RED, float('-inf'),
+        #                                               float('inf'), game)
+        #         game.ai_move(new_board)
+        #     if game.turn == RED:
+        #         value, new_board = minimax_alpha_beta(game.get_board(), DIFFICULTYLEVEL, WHITE, float('-inf'),
+        #                                               float('inf'), game)
+        #         game.ai_move(new_board)
 
-        pygame.time.delay(1000)
+        # pygame.time.delay(1000)
 
         if game.markWinner() is not None:
             print(game.markWinner())
