@@ -46,6 +46,8 @@ class Board: #Handles the state of the actual game
             if piece.color == WHITE and not piece.isKingPiece:
                 self.whiteKings += 1
                 piece.MakePieceAKing()
+
+
     def remove(self, pieces):
         for piece in pieces:
             self.board[piece.row][piece.col] = 0

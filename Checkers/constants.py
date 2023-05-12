@@ -13,3 +13,7 @@ BLUE = (0, 0, 255)
 GREY = (128, 128, 128)
 
 CROWN = pygame.transform.scale(pygame.image.load('assets/crown.png'), (45, 25))
+
+HUMANVSCOMPUTER = "HUMANVSCOMPUTER"
+HUMANVSHUMAN = "HUMANVSHUMAN"
+COMPUTERVSCOMPUTER = "COMPUTERVSCOMPUTER"
